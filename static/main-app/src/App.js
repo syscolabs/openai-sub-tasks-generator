@@ -25,19 +25,19 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ padding: "20px" }}>
       <Form onSubmit={(value) => setTokenHandler(value)}>
         {({ formProps }) => (
           <form id="form-with-id" {...formProps}>
             <FormHeader
-              title="Getting Started"
-              description="* indicates a required field"
+              title="Enter Your OpenAI API Token"
+              description="The API key will be stored within the scope of your project."
             />
             <FormSection>
               <Field
                 aria-required={true}
                 name="token"
-                label="Your OpenAI API Token"
+                label="OpenAI API Token"
                 isRequired
               >
                 {({ fieldProps }) => (

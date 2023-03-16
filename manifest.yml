@@ -1,6 +1,6 @@
 modules:
   jira:issuePanel:
-    - key: sample-crud-forge-app
+    - key: openai-sub-tasks-generator
       resource: wrapper-app
       resolver:
         function: resolver

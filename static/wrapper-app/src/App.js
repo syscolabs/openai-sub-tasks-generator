@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { invoke, Modal, view } from "@forge/bridge";
-import { LoadingButton } from "@atlaskit/button";
-import FlagErrorExample from "./Error";
+import Button, { LoadingButton } from "@atlaskit/button";
+import FlagError from "./FlagError";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -15,7 +15,7 @@ function App() {
       const modal = new Modal({
         resource: "main-app",
         onClose: (payload) => {},
-        size: "medium",
+        size: "small",
         context: {
           token,
         },
@@ -55,7 +55,7 @@ function App() {
   return (
     <div>
       <div style={{ marginBottom: "10px" }}>
-        {openAiError && <FlagErrorExample errormsg={openAiError} />}
+        {openAiError && <FlagError errormsg={openAiError} />}
       </div>
 
       {!data ? (
