@@ -1,6 +1,7 @@
 import Resolver from "@forge/resolver";
 import { REQUESTED_HEADERS } from "./constants/constants";
 import api, { fetch, route, properties } from "@forge/api";
+import { extractingSubtasksFromOpenAiResponse } from "./utils/extractSubtasks";
 
 const resolver = new Resolver();
 
@@ -86,16 +87,7 @@ resolver.define("createSubTasks", async (req) => {
   const { res } = req.payload;
 
   try {
-    let extractedArray = res.match(/{[^{}]+}/g);
-    const formattedArray = extractedArray.map((item) => {
-      const regex = /{\s*summary:\s*"([^"]+)",\s*description:\s*"([^"]+)"\s*}/;
-      const match = item.match(regex);
-      if (match) {
-        return { summary: match[1], description: match[2] };
-      } else {
-        return null;
-      }
-    });
+    const formattedArray = extractingSubtasksFromOpenAiResponse(res);
     for (const element of formattedArray) {
       const requestBody = JSON.stringify({
         fields: {
