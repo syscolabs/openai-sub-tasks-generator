@@ -1,0 +1,39 @@
+{
+  "name": "wrapper-app",
+  "version": "0.1.1",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "@atlaskit/button": "15.1.2",
+    "@atlaskit/css-reset": "6.0.1",
+    "@atlaskit/ds-lib": "2.1.2",
+    "@atlaskit/flag": "15.0.7",
+    "@atlaskit/icon": "21.11.5",
+    "@atlaskit/theme": "12.2.9",
+    "@atlaskit/tokens": "1.2.3",
+    "@emotion/core": "11.0.0",
+    "@forge/bridge": "2.5.2",
+    "eslint": "7.11.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.3",
+    "styled-components": "5.3.9"
+  },
+  "scripts": {
+    "start": "set PORT=3000 && react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
