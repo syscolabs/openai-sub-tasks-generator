@@ -8,6 +8,10 @@ Our app uses OpenAI language processing technology to generate a list of subtask
 
 Get started today and experience the power of AI-assisted project management!"
 
+
+https://user-images.githubusercontent.com/115063025/227199168-b8f8914d-11d5-404a-90b1-34362b12822a.mp4
+
+
 ## Getting started : local setup
 
 This is a guide on how to set up this jira plugin locally. The Forge platform allows developers to build, host, and run cloud applications directly within Atlassian products like Jira.
