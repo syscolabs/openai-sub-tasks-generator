@@ -6,6 +6,7 @@
   "dependencies": {
     "@atlaskit/button": "15.1.2",
     "@atlaskit/css-reset": "6.0.1",
+    "@atlaskit/dropdown-menu": "11.7.0",
     "@atlaskit/ds-lib": "2.1.2",
     "@atlaskit/flag": "15.0.7",
     "@atlaskit/icon": "21.11.5",
