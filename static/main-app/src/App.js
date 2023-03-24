@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { view, invoke } from "@forge/bridge";
 import Textfield from "@atlaskit/textfield";
 import Form, {
@@ -11,6 +11,7 @@ import Button, { ButtonGroup, LoadingButton } from "@atlaskit/button";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [context, setContext] = useState(null);
 
   const setTokenHandler = async (val) => {
     setIsLoading(true);
@@ -19,10 +20,22 @@ function App() {
     const gettoken = await invoke("getOpenaiToken");
     if (gettoken) {
       view.close();
-      setIsLoading(false);
       view.refresh();
+      setIsLoading(false);
     }
   };
+
+  const updateApitoken = async () => {
+    const context = await view.getContext();
+    const { token } = context.extension.modal;
+    if (token) {
+      setContext(token);
+    }
+  };
+
+  useEffect(() => {
+    updateApitoken();
+  }, []);
 
   return (
     <div style={{ padding: "20px" }}>
@@ -38,6 +51,7 @@ function App() {
                 aria-required={true}
                 name="token"
                 label="OpenAI API Token"
+                defaultValue={context ? context : ""}
                 isRequired
               >
                 {({ fieldProps }) => (
@@ -57,7 +71,7 @@ function App() {
                   appearance="primary"
                   isLoading={isLoading}
                 >
-                  Submit
+                  {context ? "Update" : "Submit"}
                 </LoadingButton>
               </ButtonGroup>
             </FormFooter>
