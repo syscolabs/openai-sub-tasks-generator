@@ -1,0 +1,43 @@
+modules:
+  jira:issuePanel:
+    - key: openai-sub-tasks-generator
+      resource: wrapper-app
+      resolver:
+        function: resolver
+      viewportSize: medium
+      title: OpenAI Sub-Tasks Generator
+      icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: wrapper-app
+    path: static/wrapper-app/build
+    tunnel:
+      port: 3000
+  - key: main-app
+    path: static/main-app/build
+    tunnel:
+      port: 3001
+app:
+  id: ari:cloud:ecosystem::app/2b5cb643-b01b-42f2-9e52-b2b7ba0abd59
+
+permissions:
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - manage:jira-project
+  content:
+    styles:
+      - "unsafe-inline"
+    scripts:
+      - "unsafe-inline"
+      - "unsafe-hashes"
+  external:
+    images:
+      - "*"
+    fetch:
+      client:
+        - "*"
+      backend:
+        - "*"
