@@ -10,6 +10,7 @@ function App() {
 
   const createSubTasksHandler = async () => {
     setIsLoading(true);
+    const subTaskId = await invoke("getProjectMetaData");
     const issueData = await invoke("getIssueDetailsById");
     if (issueData.ticketDescription.length < 10) {
       setOpenAiError(
@@ -25,7 +26,7 @@ function App() {
 
       if (!openAiResponse?.error?.message) {
         const res = openAiResponse.choices[0].text;
-        await invoke("createSubTasks", { res });
+        await invoke("createSubTasks", { res, subTaskId });
         view.refresh();
         setIsLoading(false);
       } else {

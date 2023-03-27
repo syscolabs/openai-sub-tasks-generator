@@ -5,6 +5,28 @@ import { extractingSubtasksFromOpenAiResponse } from "./utils/extractSubtasks";
 
 const resolver = new Resolver();
 
+resolver.define("getProjectMetaData", async (req) => {
+  const { project } = req.context.extension;
+  try {
+    const response = await api
+      .asUser()
+      .requestJira(route`/rest/api/3/project/${project.id}`, {
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+    const data = await response.json();
+    const subTaskId = data?.issueTypes?.find(
+      (issueType) => issueType.name === "Sub-task"
+    )?.id;
+
+    return subTaskId;
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 resolver.define("getIssueDetailsById", async (req) => {
   const { issue, project } = req.context.extension;
   try {
@@ -84,7 +106,7 @@ resolver.define("getSubTasksByOpenAi", async (req) => {
 
 resolver.define("createSubTasks", async (req) => {
   const { issue, project } = req.context.extension;
-  const { res } = req.payload;
+  const { res, subTaskId } = req.payload;
 
   try {
     const formattedArray = extractingSubtasksFromOpenAiResponse(res);
@@ -107,7 +129,7 @@ resolver.define("createSubTasks", async (req) => {
             version: 1,
           },
           issuetype: {
-            id: "10003",
+            id: subTaskId,
           },
           parent: {
             key: issue.key,
