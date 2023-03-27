@@ -10,16 +10,16 @@ import DropdownMenu, {
 
 const DropdownMenuTriggerButton = () => {
   const [token, setToken] = useState(null);
-  const [data, setData] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const checkOpenAiApiKey = async () => {
     const data = await invoke("getOpenaiToken");
     if (JSON.stringify(data) === "{}") {
-      setData(true);
       setToken(null);
+      setIsLoading(false);
     } else {
       setToken(data);
-      setData(true);
+      setIsLoading(false);
     }
   };
 
@@ -41,6 +41,7 @@ const DropdownMenuTriggerButton = () => {
 
   return (
     <DropdownMenu
+      isLoading={isLoading}
       trigger={({ triggerRef, ...props }) => (
         <Button
           {...props}
@@ -51,7 +52,7 @@ const DropdownMenuTriggerButton = () => {
     >
       <DropdownItemGroup>
         <DropdownItem onClick={handleModelOpen}>
-          {!token && data ? "Add API token" : "Update API Token"}
+          {token ? "Update API token" : "Add API Token"}
         </DropdownItem>
       </DropdownItemGroup>
     </DropdownMenu>
