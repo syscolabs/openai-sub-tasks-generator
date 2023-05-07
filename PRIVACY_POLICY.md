@@ -2,7 +2,7 @@ _Effective Date: March 8, 2023_
 
 _Last Updated: March 8, 2023_
 
-OpenAI-powered sub-tasks generator ("we", "us", or "our") respects the privacy of our users ("you" or "your") and is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and store your personal information when you use this app.
+"AI Sub Tasks Generator For Jira" ("we", "us", or "our") respects the privacy of our users ("you" or "your") and is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and store your personal information when you use this app.
 
 ### Personal Information
 

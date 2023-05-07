@@ -18,7 +18,7 @@ resolver.define("getProjectMetaData", async (req) => {
 
     const data = await response.json();
     const subTaskId = data?.issueTypes?.find(
-      (issueType) => issueType.name === "Sub-task"
+      (issueType) => issueType.name === "sub-task"
     )?.id;
 
     return subTaskId;
