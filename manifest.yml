@@ -5,8 +5,8 @@ modules:
       resolver:
         function: resolver
       viewportSize: medium
-      title: OpenAI Sub-Tasks Generator
-      icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
+      title: AI Sub Tasks Generator For Jira
+      icon: resource:main-app;logo.png
   function:
     - key: resolver
       handler: index.handler

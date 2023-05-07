@@ -1,4 +1,4 @@
-# OpenAI Jira Sub-Tasks Generator
+# AI Sub Tasks Generator For Jira
 
 ## Description
 
@@ -8,9 +8,7 @@ Our app uses OpenAI language processing technology to generate a list of subtask
 
 Get started today and experience the power of AI-assisted project management!"
 
-
 https://user-images.githubusercontent.com/115063025/227199168-b8f8914d-11d5-404a-90b1-34362b12822a.mp4
-
 
 ## Getting started : local setup
 
