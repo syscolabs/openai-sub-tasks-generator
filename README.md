@@ -39,7 +39,7 @@ This is a guide on how to set up this jira plugin locally. The Forge platform al
 
    - Navigate to the app's top-level directory and run `forge register` to register a new copy of this app to your developer account.
    - Deploy your app by running `forge deploy`
-   - Install your app by running `forge install --upgrade`
+   - Install your app by running `forge install`
 
 5. Testing the app
    - Run `cd static/main-app && npm start` to start the main-app
